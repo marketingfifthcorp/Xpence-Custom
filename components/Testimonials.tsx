@@ -72,7 +72,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 export function Testimonials() {
   return (
     <section
-      className="flex min-h-dvh items-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+      className="flex items-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:min-h-dvh lg:px-8"
       style={{
         background:
           "linear-gradient(90deg, rgba(105, 38, 175, 0.64) -1%, #000000 55%)",

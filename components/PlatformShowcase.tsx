@@ -41,10 +41,10 @@ export function PlatformShowcase() {
 
       <div className="mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-0 lg:rounded-l-[10px]">
         <nav
-          className="flex w-full shrink-0 flex-col gap-0 lg:w-[min(100%,320px)] lg:pr-0"
+          className="w-full shrink-0 lg:w-[min(100%,320px)] lg:pr-0"
           aria-label="Platform views"
         >
-          <div className="flex flex-col gap-2 lg:gap-0" role="tablist">
+          <div className="flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex-col lg:gap-0 lg:overflow-x-visible lg:pb-0" role="tablist">
             {TABS.map((tab, index) => {
               const isActive = index === activeIndex;
               return (
@@ -56,16 +56,16 @@ export function PlatformShowcase() {
                   id={`${tab.id}-trigger`}
                   aria-controls={`${tab.id}-panel`}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-full rounded-l-[10px] px-5 py-4 text-left transition-colors duration-200 lg:rounded-r-none ${
+                  className={`shrink-0 rounded-[10px] px-5 py-4 text-left transition-colors duration-200 lg:w-full lg:rounded-r-none ${
                     isActive
                       ? "bg-[rgba(220,220,220,0.1)]"
                       : "hover:bg-white/4"
                   }`}
                 >
-                  <span className="block text-lg font-normal leading-snug text-white">
+                  <span className="block whitespace-nowrap text-base font-normal leading-snug text-white lg:whitespace-normal lg:text-lg">
                     {tab.title}
                   </span>
-                  <span className="mt-1 block text-[10px] leading-[1.4] text-white/90 sm:text-xs sm:leading-relaxed">
+                  <span className="mt-1 hidden text-[10px] leading-[1.4] text-white/90 sm:text-xs sm:leading-relaxed lg:block">
                     {tab.description}
                   </span>
                 </button>

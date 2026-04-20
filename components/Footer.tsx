@@ -298,7 +298,7 @@ export function Footer() {
             <p className="mb-4 text-lg font-light text-white/90">
               Get our latest news and products.
             </p>
-            <form className="flex gap-2">
+            <form className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -306,7 +306,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="rounded-lg bg-xpence px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+                className="rounded-lg bg-xpence px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90 sm:shrink-0"
               >
                 Subscribe
               </button>

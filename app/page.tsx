@@ -108,7 +108,7 @@ function PartnersSection() {
     <section className=" bg-black px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col items-center">
-          <h2 className="text-center text-5xl font-medium text-white/95">
+          <h2 className="text-center text-2xl font-medium text-white/95 sm:text-3xl md:text-4xl lg:text-5xl">
             Our Valued Partners
           </h2>
           <div

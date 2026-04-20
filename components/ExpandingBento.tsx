@@ -163,6 +163,7 @@ function GridCard({
   return (
     <motion.article
       onMouseEnter={() => onHover(card.id)}
+      onClick={() => onHover(card.id)}
       initial={false}
       animate={{
         opacity: isDimmed ? 0.3 : 1,
@@ -173,7 +174,7 @@ function GridCard({
         duration: 0.5,
         ease: [0.4, 0, 0.2, 1],
       }}
-      className={`relative flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur-sm md:p-7 ${className} ${isActive ? "invisible" : ""}`}
+      className={`relative flex h-full cursor-pointer flex-col overflow-hidden rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur-sm md:p-7 ${className} ${isActive ? "invisible" : ""}`}
     >
       <h3 className="relative z-10 text-balance text-xl font-semibold leading-tight text-white md:text-2xl">
         {card.title}
@@ -240,6 +241,7 @@ function ExpandedOverlay({
       className="pointer-events-auto absolute inset-0 z-30 flex flex-col overflow-hidden rounded-[28px] border border-white/15 bg-white/12 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-md md:p-10"
       role="region"
       aria-label={card.title}
+      onClick={(e) => e.stopPropagation()}
     >
       <h3 className="max-w-3xl text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
         {card.title}
@@ -296,8 +298,9 @@ export function ExpandingBento() {
       ref={containerRef}
       className="relative w-full overflow-hidden"
       onMouseLeave={handleLeave}
+      onClick={() => { if (expanded) setExpanded(null); }}
     >
-      <div className="grid gap-5 lg:grid-cols-[33%_25%_1fr] lg:gap-6" style={{ minHeight: 780 }}>
+      <div className="grid gap-5 lg:grid-cols-[33%_25%_1fr] lg:gap-6" style={{ minHeight: "min(780px, 90vw)" }}>
         {/* Col 1 — Cards + Invoicing (50/50 split) */}
         <div className="flex flex-col gap-5 lg:gap-6">
           <div

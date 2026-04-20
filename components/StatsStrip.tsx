@@ -8,7 +8,7 @@ type Stat = {
   label: string;
 };
 
-const STATS: Stat[] = [
+const DEFAULT_STATS: Stat[] = [
   { value: 85, suffix: "%", label: "reduction in expense processing time" },
   { value: 3, suffix: "min", label: "to issue a new virtual card" },
   { value: 10, suffix: "k+", label: "businesses across MENA" },
@@ -86,7 +86,8 @@ function StatItem({
   );
 }
 
-export function StatsStrip() {
+export function StatsStrip({ stats }: { stats?: Stat[] }) {
+  const STATS = stats ?? DEFAULT_STATS;
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
 
